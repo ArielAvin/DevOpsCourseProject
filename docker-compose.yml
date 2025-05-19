@@ -1,0 +1,32 @@
+services:
+  web:
+    build: .
+    container_name: flask_web_app
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+    volumes:
+      - flask_data:/app/logs
+    networks:
+      - app-network
+
+  redis:
+    image: redis:8.0.1-alpine
+    container_name: redis_cache
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  flask_data:
+    driver: local
+    driver_opts:
+      device: './logs'
+      type: 'none'
+      o: 'bind'
