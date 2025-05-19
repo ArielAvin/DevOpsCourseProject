@@ -16,13 +16,14 @@ PROJECT STRUCTURE
 -----------------
 When you clone this repository, the project will have the following structure:
 
-.
-├── app.py            # Flask application code
+'''text
+ app.py            # Flask application code
 ├── Dockerfile        # Dockerfile for building the Flask app image
 ├── docker-compose.yml # Docker Compose configuration
 ├── requirements.txt  # Python dependencies
 └── logs/             # Host directory for persistent application logs
     └── .gitkeep      # (Ensures the 'logs' directory is present after cloning)
+'''
 
 GETTING STARTED
 ---------------
